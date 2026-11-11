@@ -1,14 +1,14 @@
 const $=s=>document.querySelector(s),today=new Date().toISOString().slice(0,10);
 const ST={H:"Hadir",I:"Izin",S:"Sakit",A:"Alpa"};
-const names=[["Aditya Pratama","Adit","L"],["Bunga Lestari","Bunga","P"],["Citra Maharani","Citra","P"],["Dimas Saputra","Dimas","L"],["Eka Wulandari","Eka","P"],["Fajar Nugroho","Fajar","L"],["Galuh Permata","Galuh","P"],["Hendra Kusuma","Hendra","L"]];
+const names=[["Sigit Pramono","Sigit","L"],["Vitri Ayuningtyas","Vitri","P"],["Muhammad Abid Atharmaja","Abid","L"],["Evans Aditya Pratama","Evans","L"],["Muhammad Java Haykal","Java","L"],["Tania Nuraini","Tania","P"]];
 function seed(){
  const students=names.map((n,i)=>({id:"s"+i,nama:n[0],panggilan:n[1],nisn:"00"+(71234560+i),jk:n[2],tempat:"Yogyakarta",tgl:"2010-0"+(i%9+1)+"-1"+i,agama:"Islam",alamat:"Jl. Kaliurang Km "+(5+i)+", Sleman",ayah:"Bpk. "+n[1],ibu:"Ibu "+n[1],kerja:"Wiraswasta",hpOrtu:"0812345600"+i,hpSiswa:"0857000000"+i}));
  const att={};
  for(let d=1;d<=6;d++){const dt=new Date(Date.now()-d*864e5).toISOString().slice(0,10);att[dt]={};students.forEach((s,i)=>{const r=(i*7+d*3)%11;att[dt][s.id]=i==3&&d<5?"A":r==0?"S":r==1?"I":"H"})}
  return{students,att,notes:[{id:"n1",sid:"s1",tipe:"pr",tgl:today,ket:"Juara 2 lomba cerdas cermat",poin:20},{id:"n2",sid:"s3",tipe:"pl",tgl:today,ket:"Terlambat masuk kelas",poin:5}],log:[],trash:[]}}
-let D;try{D=JSON.parse(localStorage.getItem("x2"))}catch(e){}
+let D;try{D=JSON.parse(localStorage.getItem("x3"))}catch(e){}
 if(!D||!D.students)D=seed();
-const save=()=>{try{localStorage.setItem("x2",JSON.stringify(D))}catch(e){}};
+const save=()=>{try{localStorage.setItem("x3",JSON.stringify(D))}catch(e){}};
 let U=null,page="dash",q="",fj="",pgn=1,adate=today,draft=null,rd=null;
 const can=a=>U&&(U.role=="wali"||(U.role=="guru"&&a=="input"));
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
