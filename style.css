@@ -50,4 +50,19 @@ th{background:var(--navy2);color:var(--navy);font-size:14px}tr:last-child td{bor
 .alert{border-left:4px solid var(--bad);padding:8px 12px;background:var(--badb);border-radius:6px;margin-bottom:6px}
 .kv{display:grid;grid-template-columns:150px 1fr;gap:4px 10px;font-size:15px}.kv dt{color:var(--mute)}.kv dd{margin:0}
 @media (max-width:760px){.app{flex-direction:column}nav{width:100%;flex-direction:row;overflow-x:auto;padding:8px;align-items:center}nav h1,nav .who{display:none}nav button{white-space:nowrap}main{padding:14px}.fg{grid-template-columns:1fr}.kv{grid-template-columns:1fr}}
+html{scroll-behavior:smooth}
+.btn,nav button,.seg button{transition:background .18s,color .18s,transform .12s,box-shadow .18s,filter .18s}
+.btn:hover{filter:brightness(.95);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.btn:active,.seg button:active,nav button:active{transform:scale(.97)}
+.seg button:hover{background:var(--navy2)}
+input,select,textarea{transition:border-color .18s,box-shadow .18s}
+input:focus,select:focus,textarea:focus{border-color:var(--em);box-shadow:0 0 0 3px rgba(75,85,99,.18)}
+table tr td{transition:background .15s}table tr:hover td{background:#f6f7f9}
+.card{transition:box-shadow .25s}.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.07)}
+main{animation:fin .28s ease-out}.mask{animation:fd .2s ease-out}.modal,.login .card{animation:pop .24s ease-out}.t{animation:sl .3s ease-out}
+@keyframes fin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes fd{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes sl{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media print{nav,.tb,.tools,.top .btn,.act,.pg{display:none!important}main{padding:0}body{background:#fff;color:#000}}
